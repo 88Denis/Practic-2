@@ -9,6 +9,7 @@ button {
   width: 70px;
   height: 30px;
   background-color: yellow;
+  margin-right: 10px;
 }
 
 .blue {
@@ -16,4 +17,27 @@ button {
 }
 .red {
   background-color: red;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color:blueviolet;
+}
+
+.wrapper {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  border: 3px red solid;
+ 
+}
+.box {
+  position: absolute;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
 }
