@@ -157,3 +157,54 @@ const style = window.getComputedStyle(box);
 console.log(style.display);
 
 console.log(document.documentElement.scrollTop);
+
+  ////////////////////////////////////////
+ ////////* Функции конструкторы *////////
+////////////////////////////////////////
+
+//Стандарт ES5
+//Функции конструкторы предназначены для создания новых однотипных объектов. 
+
+function User(name, id) {
+  this.name = name;
+  this.id = id;
+  this.human = true;
+  this.hello = function() {
+    console.log(`Hello ${this.name}`);
+  };
+}
+
+User.prototype.exit = function() {
+  console.log(`Пользователь ${this.name} ушел`);
+};
+
+
+
+const ivan = new User('Ivan', 28);
+const alex = new User('Alex', 20);
+
+ivan.exit();
+
+ivan.hello();
+alex.hello();
+
+console.log(ivan);
+console.log(alex);
+
+// В стандарте ES6 появились классы
+// Как выглядят классы 
+// Классы в ES6 это синтаксический сахар (более удобная форма создания функицй-конструкторов)
+
+class User {
+  constructor(name, id) {
+    this.name = name;
+    this.id = id;
+    this.human = true;
+  }
+  hello() {
+    console.log(`Hello! ${this.name}`);
+  }
+  exit(){
+    console.log(`Пользователь ${this.name} ушел`);
+  }
+}
