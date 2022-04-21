@@ -1,43 +1,16 @@
-.btn-block {
-  display: flex;
-  padding: 10px;
-  background-color:rgb(150, 150, 150);
-} 
-
-
-button {
-  width: 70px;
-  height: 30px;
-  background-color: yellow;
-  margin-right: 10px;
-}
-
-.blue {
-  background-color: blue;
-}
-.red {
-  background-color: red;
-}
-
-.btn {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100px;
-  height: 40px;
-  border: none;
-  background-color:blueviolet;
-}
-
-.wrapper {
-  position: relative;
-  height: 400px;
-  width: 400px;
-  border: 3px red solid;
- 
-}
 .box {
-  position: absolute;
-  background-color: blue;
-  width: 100px;
-  height: 100px;
-}
+  box-sizing: border-box;
+    width: 400px;
+    height: 350px;
+    overflow: scroll;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+  }
+  button {
+    width: 100px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px; 
+  }

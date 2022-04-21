@@ -94,7 +94,7 @@
  ////////* Работа с датами *////////
 ///////////////////////////////////
 
-const now = new Date('2022-04-20');
+// const now = new Date('2022-04-20');
 //  new Date.parse('2022-04-20');
 
 /* Методы получения компонентов или специфических значений  */
@@ -116,15 +116,44 @@ const now = new Date('2022-04-20');
 
 /* Методы сетеры */
 
-console.log(now.setHours(18, 40)); // Установка часов, минут
-console.log(now);
+// console.log(now.setHours(18, 40)); // Установка часов, минут
+// console.log(now);
 
-let start = new Date();
+// let start = new Date();
 
-for (let i = 0; i < 100000; i++) {
-  let sum = i ** 3;
-}
+// for (let i = 0; i < 100000; i++) {
+//   let sum = i ** 3;
+// }
 
-let end = new Date();
+// let end = new Date();
 
-alert(`Цикл отработал за ${end - start} миллисекунд`);
+// alert(`Цикл отработал за ${end - start} миллисекунд`);
+
+  /////////////////////////////////////////////////////////////////
+ ////////* Параметры документа, окна и работа с ними *////////////
+/////////////////////////////////////////////////////////////////
+
+const box = document.querySelector('.box'),
+      btn = document.querySelector('button');
+
+// const width = box.clientWidth;
+// const height = box.clientHeight;
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
+const width = box.scrollWidth;
+const height = box.scrollHeight;
+
+console.log(width, height);
+
+btn.addEventListener('click', () => {
+  // box.style.height = box.scrollHeight + 'px';
+  console.log(box.scrollTop);
+  
+});
+
+console.log(box.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(box);
+console.log(style.display);
+
+console.log(document.documentElement.scrollTop);
