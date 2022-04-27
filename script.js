@@ -1,4 +1,3 @@
-
 // // const btns = document.querySelectorAll('button'),
 //           //       wrapper = document.querySelector('.btn-block');
 
@@ -74,7 +73,7 @@
 //           //   timerId = setInterval(logger, 1000);
 //           // });
 
-          
+
 
 
 
@@ -149,7 +148,7 @@
 // // btn.addEventListener('click', () => {
 // //   // box.style.height = box.scrollHeight + 'px';
 // //   // console.log(box.scrollTop);
-  
+
 // // });
 
 // // console.log(box.getBoundingClientRect().top);
@@ -225,7 +224,7 @@
 // //     return a + b;
 // //   }
 // //   console.log(sum());
-  
+
 // // }
 // // showThis(4, 5);
 
@@ -298,39 +297,99 @@
 // console.log(double(4));
 
 
-  //////////////////////////////
- ////////* Классы ES6 *////////
 //////////////////////////////
-class Rectangle {
-  constructor(height, width) {
-    this.height = height;
-    this.width = width;
-  }
+////////* Классы ES6 *////////
+//////////////////////////////
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height;
+//     this.width = width;
+//   }
 
-  calcArea() {
-    return this.height * this.width;
-  }
-}
+//   calcArea() {
+//     return this.height * this.width;
+//   }
+// }
 
-class ColoredRectangleWithText extends Rectangle {
-  constructor(height, width, text, bgColor) {
-    super(height, width); // Вызывает супер-конструктор родителя, всегда ставиться на первом месте
-    this.text = text;
-    this.bgColor = bgColor;
-  }
-  showMyProps() {
-    console.log(`Текст: ${this.text},\nцвет: ${this.bgColor}`);
-  }
-}
-/*Концепция, шаблон */
+// class ColoredRectangleWithText extends Rectangle {
+//   constructor(height, width, text, bgColor) {
+//     super(height, width); // Вызывает супер-конструктор родителя, всегда ставиться на первом месте
+//     this.text = text;
+//     this.bgColor = bgColor;
+//   }
+//   showMyProps() {
+//     console.log(`Текст: ${this.text},\nцвет: ${this.bgColor}`);
+//   }
+// }
+// /*Концепция, шаблон */
 
-const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
+// const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
 
-div.showMyProps();
-console.log(div.calcArea());
+// div.showMyProps();
+// console.log(div.calcArea());
 
 // const squre = new Rectangle(10, 10);
 // const long = new Rectangle(20, 100);
 
 // console.log(squre.calcArea());
 // console.log(long.calcArea());
+
+
+///////////////////////////////
+////////* Промисы ES6 *////////
+///////////////////////////////
+
+// console.log('Запрос данных...');
+
+// const req = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log('Подготовка данных...');
+
+//     const product = {
+//       name: 'TV',
+//       price: 2000
+//     };
+
+//     resolve(product);
+//   }, 2000);
+// });
+
+
+// req.then((product) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       product.status = 'order';
+//       resolve(product);
+//     }, 2000);
+//   });
+
+// }).then(data => {
+//   data.modify = true;
+//   return data;
+// }).then((data) => {
+//     console.log(data);
+// }).catch(() => {
+//     console.error('Произошла ошибка');
+// }).finally(() => {
+// console.log('Finally');
+// });
+
+const test = time => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), time);
+  });
+};
+
+// test(1000).then(() => console.log('1000'));
+// test(2000).then(() => console.log('2000'));
+
+
+/*Промис all ожидает выполнение всех промисов*/
+Promise.all([test(1000), test(1000)]).then(() => {
+  console.log('All');
+});
+/*Промис race выполняет свои действия только тогда когда первый промис правильно отработал*/
+Promise.race([test(1000), test(1000)]).then(() => {
+  console.log('All');
+});
+
