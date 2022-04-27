@@ -97,7 +97,7 @@
 // // const now = new Date('2022-04-20');
 // //  new Date.parse('2022-04-20');
 
-// /* Методы получения компонентов или специфических значений  */
+// /* Методы получения компонентов или специфических значений  *///////////////////// 
 
 // // console.log(now.getFullYear());
 // // console.log(now.getMonth());
@@ -162,7 +162,7 @@
 //  ////////* Функции конструкторы *////////
 // ////////////////////////////////////////
 
-// //Стандарт ES5
+// /* Стандарт ES5 *//////////////////// 
 // //Функции конструкторы предназначены для создания новых однотипных объектов. 
 
 // // function User(name, id) {
@@ -335,8 +335,8 @@
 // console.log(long.calcArea());
 
 
-///////////////////////////////
-////////* Промисы ES6 *////////
+  ///////////////////////////////
+ ////////* Промисы ES6 *////////
 ///////////////////////////////
 
 // console.log('Запрос данных...');
@@ -374,22 +374,70 @@
 // console.log('Finally');
 // });
 
-const test = time => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(), time);
-  });
-};
+// const test = time => {
+//   return new Promise(resolve => {
+//     setTimeout(() => resolve(), time);
+//   });
+// };
 
-// test(1000).then(() => console.log('1000'));
-// test(2000).then(() => console.log('2000'));
+// // test(1000).then(() => console.log('1000'));
+// // test(2000).then(() => console.log('2000'));
 
 
-/*Промис all ожидает выполнение всех промисов*/
-Promise.all([test(1000), test(1000)]).then(() => {
-  console.log('All');
-});
-/*Промис race выполняет свои действия только тогда когда первый промис правильно отработал*/
-Promise.race([test(1000), test(1000)]).then(() => {
-  console.log('All');
-});
+// /*Промис all ожидает выполнение всех промисов*/
+// Promise.all([test(1000), test(1000)]).then(() => {
+//   console.log('All');
+// });
+// /*Промис race выполняет свои действия только тогда когда первый промис правильно отработал*/
+// Promise.race([test(1000), test(1000)]).then(() => {
+//   console.log('All');
+// });
 
+
+  ////////////////////////////////////////////
+ ////////* Методы перебора массивов *////////
+////////////////////////////////////////////
+
+/* filter *//////////////////// 
+
+// const names = ['Ivan', 'Nikolay', 'Dmitry', 'Marina',];
+
+// const shortName = names.filter(function(name) {
+//   return name.length < 5;
+// });
+//   console.log(shortName);
+
+/* map *//////////////////// 
+//  map - возвращает новый массив с модифицированными элементами обрабатываемого массива
+
+// let answers = ['IvAn', 'AnnA', 'Hello'];
+
+// const result = answers.map(item => item.toLowerCase());
+
+// console.log(result);
+
+/* every/some *//////////////////// 
+
+// every - возвращает true если ВСЕ элементы подходят по условию
+// some возвращает true если хотя-бы ОДИН элемент подходит по условию
+
+// const some = [4, 'qwq', 'qwerty'];
+
+// console.log(some.some(item => typeof(item) === 'number'));
+// console.log(some.every(item => typeof(item) === 'number'));
+
+/* reduce *//////////////////// 
+// reduce - собирает массив в одно единое целое
+
+// const arr = [4, 5, 1, 3, 2, 6];
+//                           // 0     4
+//                           // 4     5
+//                           // 9     1
+//                           // 10    3
+// const res = arr.reduce((sum, current) => sum + current);
+// console.log(res);
+
+const arr = ['apple', 'pear', 'plum'];
+
+const res = arr.reduce((sum, current) => `${sum}, ${current}`);
+console.log(res);
