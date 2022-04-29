@@ -460,38 +460,108 @@
 
 // console.log(localStorage.getItem('number'));
 
-const checkbox = document.querySelector('#checkbox'),
-      form = document.querySelector('form'),
-      change = document.querySelector('#color');
+// const checkbox = document.querySelector('#checkbox'),
+//       form = document.querySelector('form'),
+//       change = document.querySelector('#color');
 
-if (localStorage.getItem('isChecked')) {
-  checkbox.checked = true;
-}
-if (localStorage.getItem('bg') === 'changed'){
+// if (localStorage.getItem('isChecked')) {
+//   checkbox.checked = true;
+// }
+// if (localStorage.getItem('bg') === 'changed'){
   
-  form.style.backgroundColor = '#red';
-}
+//   form.style.backgroundColor = '#red';
+// }
 
-checkbox.addEventListener('change', () => {
-  localStorage.setItem('isChecked', true);
-});
+// checkbox.addEventListener('change', () => {
+//   localStorage.setItem('isChecked', true);
+// });
 
-change.addEventListener('click', () => {
-  if (localStorage.getItem('bg') === 'changed'){
-    localStorage.removeItem('bg');
-    form.style.backgroundColor = '#fff';
-  } else {
-    localStorage.setItem('bg', 'changed');
-    form.style.backgroundColor = 'red';
-  }
-});
+// change.addEventListener('click', () => {
+//   if (localStorage.getItem('bg') === 'changed'){
+//     localStorage.removeItem('bg');
+//     form.style.backgroundColor = '#fff';
+//   } else {
+//     localStorage.setItem('bg', 'changed');
+//     form.style.backgroundColor = 'red';
+//   }
+// });
 
-const persone = {
-  name: 'Alex',
-  age: 25
-};
+// const persone = {
+//   name: 'Alex',
+//   age: 25
+// };
 
-const serializefPersone = JSON.stringify(persone);
-localStorage.setItem('alex', serializefPersone);
+// const serializefPersone = JSON.stringify(persone);
+// localStorage.setItem('alex', serializefPersone);
 
-console.log(JSON.parse(localStorage.getItem('alex')));
+// console.log(JSON.parse(localStorage.getItem('alex')));
+
+
+  ////////////////////////////////////////////
+ ////////* Регулярные выражения*/////////////
+////////////////////////////////////////////
+
+/* Методы *////////////////////
+
+// search - возвращает позицию первого совпадения с (reg)
+/*-------------------------------------------------------------------- */
+// match - ищет совпадение я с (reg) в строке. Если у регулярного вы-   /
+// ражения есть  флаг g, то он возвращает массив всех совпадений, без   /
+// скобочных групп и деталей                                            /
+/*-------------------------------------------------------------------- */
+// matchAll - новый улучшенный метод варианта match                     /
+// у него есть 3 отличия:                                               /
+// 1. Он возвращает не массив, а перебираемый объект с рузультатами,    /
+// обычный массив можно сделать при помощи Array.from                   /
+// 2. Каждое совпадение возвращается в виде массива со скобочными       /
+// группами (как str.match без флага g)                                 /
+// 3. Если совпадений нет, то возвращается не null, а пустой перебира-  /
+// емый объект                                                          /
+/*-------------------------------------------------------------------- */
+// replace - позволяет брать определенную часть строки и заменять ее    /
+// на другое выражение                                                  /
+/*-------------------------------------------------------------------- */
+// test - ищет совпадение и возвращает true/false, в зависимости от
+//  того, находит ли он его
+/*-------------------------------------------------------------------- */
+
+
+/* Флаги *////////////////////
+
+// i - хотим что-то найти вне зависимости от региста
+// g (global) - когда пытаемся найти несколько вхождений
+// m - включает в себя многострочный режим
+
+/* Классы *////////////////////
+
+// \d (digit) - ищем цифры
+// \w (word) - ищем слова
+// \s (space) - ищем пробелы
+
+/* Обратные классы *////////////////////
+
+// \D - ищем не цифры
+// \W - ищем не слова
+// \S - ищем не пробелы
+
+// new RegExp('pattern', 'flags');
+// /pattern/flags
+
+// const ans = prompt('Введите ваше число');
+
+// const reg = /\d/g;
+// console.log(ans.match(reg));
+
+const str = 'My name is R2D2';
+
+console.log(str.match(/\D/ig));
+
+// console.log(ans.search(reg));
+// 
+
+// const pass = prompt('Password');
+
+// console.log(pass.replace(/./g, "*"));
+
+// console.log('23-34-56'.replace(/-/g, ':'));
+
