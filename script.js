@@ -570,16 +570,52 @@
  ////////* Геттеры и Сеттеры (свойства объектов) */////////////
 //////////////////////////////////////////////////////////////
 
-const persone = {
-  name: 'Alex',
-  age: 25,
+// const persone = {
+//   name: 'Alex',
+//   age: 25,
 
-  get userAge() {
-    return this.age;
-  },
+//   get _age() {
+//     return this.age;
+//   },
 
-  set userAge(num) {
-    this.age = num;
+//   set _age(num) {
+//     this.age = num;
+//   }
+// };
+// console.lof(persone._age);
+
+
+  ////////////////////////////////
+ ////////* Инкапсуляция *////////
+////////////////////////////////
+
+
+class User {
+constructor (name, age) {
+  this.name = name;
+  this._age = age;
+}
+  
+  say() {
+    console.log(`Имя пользователя ${this.name}, возраст ${this._age}`);
   }
-};
-console.lof(persone.userAge);
+
+
+  get age() {
+    return this._age;
+  }
+
+  set age(age) {
+    if (typeof age === 'number' && age > 0 && age < 110) {
+      this._age = age;
+    } else {
+      console.log('Недопустимое значние');
+    }
+  }
+}
+
+const ivan = new User('Ivan', 27);
+console.log(ivan.age);
+ivan.age = 99;
+console.log(ivan.age);
+ivan.say();
