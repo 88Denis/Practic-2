@@ -498,7 +498,7 @@
 
 
   ////////////////////////////////////////////
- ////////* Регулярные выражения*/////////////
+ ////////* Регулярные выражения */////////////
 ////////////////////////////////////////////
 
 /* Методы *////////////////////
@@ -552,9 +552,9 @@
 // const reg = /\d/g;
 // console.log(ans.match(reg));
 
-const str = 'My name is R2D2';
+// const str = 'My name is R2D2';
 
-console.log(str.match(/\D/ig));
+// console.log(str.match(/\D/ig));
 
 // console.log(ans.search(reg));
 // 
@@ -565,3 +565,21 @@ console.log(str.match(/\D/ig));
 
 // console.log('23-34-56'.replace(/-/g, ':'));
 
+
+  //////////////////////////////////////////////////////////////
+ ////////* Геттеры и Сеттеры (свойства объектов) */////////////
+//////////////////////////////////////////////////////////////
+
+const persone = {
+  name: 'Alex',
+  age: 25,
+
+  get userAge() {
+    return this.age;
+  },
+
+  set userAge(num) {
+    this.age = num;
+  }
+};
+console.lof(persone.userAge);
